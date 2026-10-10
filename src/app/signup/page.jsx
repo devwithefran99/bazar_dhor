@@ -1,7 +1,14 @@
-
+"use client"
 import Link from "next/link";
 
 const SignUpPage = () => {
+  const onSubmit = async(e) => {
+    e.preventDefault()
+    const formData = new FormData(e.target)
+    const user = Object.fromEntries(formData.entries())
+    console.log(user)
+    
+  }
   return (
     <main className="flex min-h-[80vh] items-center justify-center bg-[#f0f5f1] px-4 py-10">
       <div className="w-full max-w-md rounded-2xl border border-[#e1e9e2] bg-[#fbfdfb] p-6 sm:p-8">
@@ -17,7 +24,7 @@ const SignUpPage = () => {
           </p>
         </div>
 
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={onSubmit}>
           <div>
             <label htmlFor="name" className="mb-1 block text-sm font-medium">
               আপনার নাম

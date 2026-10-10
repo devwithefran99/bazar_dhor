@@ -1,8 +1,8 @@
 import { Hind_Siliguri } from "next/font/google";
 import "./globals.css";
-import TopHeader from "@/components/TopHeader";
-import Footer from "@/components/Footer";
-import Marquee from "@/components/Marquee";
+import TopHeader from "../components/TopHeader";
+import Marquee from "../components/Marquee";
+import Footer from './../components/Footer';
 
 const hindSiliguri = Hind_Siliguri({
   subsets: ["bengali", "latin"],
