@@ -27,6 +27,7 @@ const UserInfo = () => {
       {user ? (
         <div className="flex items-center gap-3">
           {/* User Profile */}
+         <Link href={'/profile'}>
           <div className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-2 py-1.5 sm:px-3">
             <div className="flex h-9 w-9 items-center justify-center rounded-full bg-green-100 font-bold text-green-800">
               {user.name?.charAt(0).toUpperCase()}
@@ -39,6 +40,7 @@ const UserInfo = () => {
               
             </div>
           </div>
+         </Link>
 
           {/* Sign Out */}
           <button

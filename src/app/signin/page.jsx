@@ -22,6 +22,17 @@ const SignInPage = () => {
       window.location.href = "/";
     }
   };
+  const handleGoogleSignIn = async() => {
+    const data = await authClient.signIn.social({
+    provider: "google",
+  });
+
+  }
+  const handleGithubSignIn = async() => {
+    const data = await authClient.signIn.social({
+        provider: "github"
+    })
+  }
 
   return (
     <main className="flex min-h-[80vh] items-center justify-center bg-[#f0f5f1] px-4 py-10">
@@ -90,6 +101,9 @@ const SignInPage = () => {
         >
           ← হোম পেজে ফিরে যান
         </Link>
+
+        <button onClick={handleGoogleSignIn} className="btn mx-auto">Sign-In with Goggle</button>
+        <button onClick={handleGithubSignIn} className="btn mx-auto">Sign-In with Github</button>
       </div>
     </main>
   );

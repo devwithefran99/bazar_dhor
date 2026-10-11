@@ -5,6 +5,7 @@ import Link from "next/link";
 import { toast } from "react-toastify";
 
 const SignUpPage = () => {
+  
   const onSubmit = async(e) => {
     e.preventDefault()
     const formData = new FormData(e.target)
@@ -22,6 +23,17 @@ const SignUpPage = () => {
         toast.error("Something went Wrong!")
     }
     
+  }
+  const handleGoogleSignUp = async () => {
+  await authClient.signIn.social({
+    provider: "google",
+    callbackURL: "/",
+  });
+};
+const handleGithubSignIn = async() => {
+    const data = await authClient.signIn.social({
+        provider: "github"
+    })
   }
   return (
     <main className="flex min-h-[80vh] items-center justify-center bg-[#f0f5f1] px-4 py-10">
@@ -106,6 +118,20 @@ const SignUpPage = () => {
         >
           ← হোম পেজে ফিরে যান
         </Link>
+        <button
+  type="button"
+  onClick={handleGoogleSignUp}
+  className="mt-4 w-full rounded-lg border border-gray-200 bg-white py-3 text-sm font-medium text-gray-700 transition hover:bg-gray-50"
+>
+  Sign Up with Google
+</button>
+ <button
+  type="button"
+  onClick={handleGithubSignIn}
+  className="mt-4 w-full rounded-lg border border-gray-200 bg-white py-3 text-sm font-medium text-gray-700 transition hover:bg-gray-50"
+>
+  Sign Up with Github
+</button>
       </div>
     </main>
   );

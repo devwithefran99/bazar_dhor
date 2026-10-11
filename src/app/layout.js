@@ -19,7 +19,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="bn" className="h-full antialiased">
+    <html lang="bn" data-theme="light" className="h-full antialiased">
       <body className={`${hindSiliguri.className} min-h-full flex flex-col`}>
         <TopHeader />
         <Marquee />
