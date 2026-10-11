@@ -13,6 +13,7 @@ const page = () => {
       <PriceDown />
 
       <AllProducts />
+      
     </div>
   );
 };

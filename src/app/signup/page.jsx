@@ -1,12 +1,26 @@
 "use client"
+import { redirect } from "next/navigation";
+import { authClient } from "../../lib/auth-client";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 const SignUpPage = () => {
   const onSubmit = async(e) => {
     e.preventDefault()
     const formData = new FormData(e.target)
     const user = Object.fromEntries(formData.entries())
-    console.log(user)
+    
+  const {data , error} =  await authClient.signUp.email({
+      ...user,
+      callbackURL:"/"
+    })
+    if(data){
+      toast.success('SignUp successfully')
+      redirect ("/");
+    }
+    if(error){
+        toast.error("Something went Wrong!")
+    }
     
   }
   return (
@@ -33,6 +47,7 @@ const SignUpPage = () => {
             <input
               id="name"
               type="text"
+              name="name"
               placeholder="আপনার নাম লিখুন"
               required
               className="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm outline-none focus:border-green-600"
@@ -46,6 +61,7 @@ const SignUpPage = () => {
 
             <input
               id="email"
+              name="email"
               type="email"
               placeholder="আপনার ইমেইল লিখুন"
               required
@@ -61,6 +77,7 @@ const SignUpPage = () => {
             <input
               id="password"
               type="password"
+              name="password"
               minLength={8}
               placeholder="কমপক্ষে ৮ অক্ষর"
               required

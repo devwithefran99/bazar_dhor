@@ -1,12 +1,12 @@
 
 import { notFound } from "next/navigation";
-import SingleProduct from "@/components/SingleProduct";
+import SingleProduct from "../../../components/SingleProduct";
 
 const ProductPage = async ({ params }) => {
   const { id } = await params;
 
   const res = await fetch(
-    `https://api.api-store.workers.dev/api/bazardor/products/${id}`
+    `https://openapi.programming-hero.com/api/bazardor/products/${id}`
   );
 
   if (!res.ok) {

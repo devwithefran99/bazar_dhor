@@ -1,5 +1,5 @@
 
-import CategoryProducts from "@/components/CategoryProducts";
+import CategoryProducts from "../../../components/CategoryProducts";
 
 const CategoryPage = async ({ params }) => {
   const { slug } = await params;

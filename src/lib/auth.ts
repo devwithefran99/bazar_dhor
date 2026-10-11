@@ -2,14 +2,20 @@ import { betterAuth } from "better-auth";
 import { MongoClient } from "mongodb";
 import { mongodbAdapter } from "@better-auth/mongo-adapter";
 
-const client = new MongoClient(process.env.MONGODB_URL);
+const globalForMongo = globalThis as unknown as { _mongoClient?: MongoClient };
+
+const client =
+  globalForMongo._mongoClient ?? new MongoClient(process.env.MONGODB_URL!);
+
+if (process.env.NODE_ENV !== "production") {
+  globalForMongo._mongoClient = client;
+}
+
 const db = client.db("bazar-dhor");
 
 export const auth = betterAuth({
-    emailAndPassword: { 
-    enabled: true, 
+  emailAndPassword: {
+    enabled: true,
   },
-  database: mongodbAdapter(db, {
-    client,
-  }),
+  database: mongodbAdapter(db), // client pass korbo na
 });
