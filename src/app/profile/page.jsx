@@ -12,8 +12,7 @@ const Profile = () => {
     e.preventDefault();
 
     const { error } = await authClient.updateUser({
-      name: name,
-    });
+      name: name,});
 
     if (error) {
       toast.error("নাম পরিবর্তন করা যায়নি!");
@@ -31,28 +30,16 @@ const Profile = () => {
         </h1>
 
         <p className="mb-6 text-center text-sm text-gray-500">
-          আপনার নাম পরিবর্তন করুন
-        </p>
+          আপনার নাম পরিবর্তন করুন </p>
 
         <form onSubmit={handleSubmit}>
           <label htmlFor="name" className="mb-2 block text-sm font-medium">
-            আপনার নাম
-          </label>
+            আপনার নাম </label>
 
-          <input
-            id="name"
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder={"enter your name here"}
-            required
-            className="mb-4 w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm outline-none focus:border-green-600"
-          />
+          <input id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder={"enter your name here"}
+            required className="mb-4 w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm outline-none focus:border-green-600"/>
 
-          <button
-            type="submit"
-            className="w-full rounded-lg bg-green-700 py-3 text-sm font-semibold text-white hover:bg-green-800"
-          >
+          <button type="submit" className="w-full rounded-lg bg-green-700 py-3 text-sm font-semibold text-white hover:bg-green-800" >
             নাম পরিবর্তন করুন
           </button>
         </form>

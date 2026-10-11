@@ -55,14 +55,8 @@ const SignInPage = () => {
               ইমেইল
             </label>
 
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="আপনার ইমেইল লিখুন"
-              required
-              className="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm outline-none focus:border-green-600"
-            />
+            <input id="email" name="email" type="email" placeholder="আপনার ইমেইল লিখুন"
+              required className="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm outline-none focus:border-green-600" />
           </div>
 
           <div>
@@ -70,20 +64,13 @@ const SignInPage = () => {
               পাসওয়ার্ড
             </label>
 
-            <input
-              id="password"
-              name="password"
-              type="password"
-              placeholder="আপনার পাসওয়ার্ড লিখুন"
-              required
-              className="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm outline-none focus:border-green-600"
-            />
+            <input id="password" name="password"  type="password" placeholder="আপনার পাসওয়ার্ড লিখুন"
+ required className="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm outline-none focus:border-green-600" />
           </div>
 
           <button
             type="submit"
-            className="w-full rounded-lg bg-green-700 py-3 text-sm font-semibold text-white transition hover:bg-green-800"
-          >
+            className="w-full rounded-lg bg-green-700 py-3 text-sm font-semibold text-white transition hover:bg-green-800"  >
             Sign In
           </button>
         </form>
@@ -97,13 +84,14 @@ const SignInPage = () => {
 
         <Link
           href="/"
-          className="mt-4 block text-center text-sm text-gray-500 hover:text-green-700"
-        >
+          className="mt-4 block text-center text-sm text-gray-500 hover:text-green-700" >
           ← হোম পেজে ফিরে যান
         </Link>
 
-        <button onClick={handleGoogleSignIn} className="btn mx-auto">Sign-In with Goggle</button>
+        <div className="flex justify-center item-center gap-1 mt-2" >
+          <button onClick={handleGoogleSignIn} className="btn mx-auto">Sign-In with Goggle</button>
         <button onClick={handleGithubSignIn} className="btn mx-auto">Sign-In with Github</button>
+        </div>
       </div>
     </main>
   );
