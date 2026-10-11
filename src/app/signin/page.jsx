@@ -1,7 +1,28 @@
+"use client";
 
 import Link from "next/link";
+import { authClient } from "../../lib/auth-client";
+import { toast } from "react-toastify";
 
 const SignInPage = () => {
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+
+    const { error } = await authClient.signIn.email({
+      email: formData.get("email"),
+      password: formData.get("password"),
+    });
+
+    if (error) {
+      toast.error(error.message || "ইমেইল অথবা পাসওয়ার্ড ভুল!");
+    } else {
+      toast.success("সফলভাবে Sign In হয়েছে!");
+      window.location.href = "/";
+    }
+  };
+
   return (
     <main className="flex min-h-[80vh] items-center justify-center bg-[#f0f5f1] px-4 py-10">
       <div className="w-full max-w-md rounded-2xl border border-[#e1e9e2] bg-[#fbfdfb] p-6 sm:p-8">
@@ -9,7 +30,7 @@ const SignInPage = () => {
           <div className="mb-3 text-4xl">🛒</div>
 
           <h1 className="text-2xl font-bold text-gray-800">
-             স্বাগতম!
+            স্বাগতম!
           </h1>
 
           <p className="mt-2 text-sm text-gray-500">
@@ -17,7 +38,7 @@ const SignInPage = () => {
           </p>
         </div>
 
-        <form className="space-y-4">
+        <form onSubmit={handleSignIn} className="space-y-4">
           <div>
             <label htmlFor="email" className="mb-1 block text-sm font-medium">
               ইমেইল
@@ -25,6 +46,7 @@ const SignInPage = () => {
 
             <input
               id="email"
+              name="email"
               type="email"
               placeholder="আপনার ইমেইল লিখুন"
               required
@@ -39,6 +61,7 @@ const SignInPage = () => {
 
             <input
               id="password"
+              name="password"
               type="password"
               placeholder="আপনার পাসওয়ার্ড লিখুন"
               required
