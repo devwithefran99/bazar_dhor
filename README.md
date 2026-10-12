@@ -12,12 +12,13 @@
 
 ## ✨ Key Features
 
-- 📊 **Daily Price Tracking** — View products with current prices and daily price changes.
-- 🛍️ **Product Categories** — Browse essential products by category.
-- ↕️ **Price Sorting** — Sort products from lowest to highest price or vice versa.
-- 🔎 **Product Details** — Explore average, minimum, maximum, and market-wise prices.
-- 🔐 **Authentication & Profile** — Sign in with email or social accounts and update profile information.
+- **Daily Price Tracking** — View products with current prices and daily price changes.
+- **Product Categories** — Browse essential products by category.
+- **Price Sorting** — Sort products from lowest to highest price or vice versa.
+- **Product Details** — Explore average, minimum, maximum, and market-wise prices.
+- **Authentication & Profile** — Sign in with email or social accounts and update profile information.
 
 ---
 
 <p align="center">বাজার দর — প্রয়োজনীয় পণ্যের দাম এক নজরে।</p>
+  
